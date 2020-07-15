@@ -9,49 +9,48 @@ module.exports = {
 
   //buscar varios filtrados
   async index(request, response) {
-    //filter
-    //cidade, uf, items (Query Params)
-    const { city, uf, items } = request.query;
 
-    const parseItems = String(items)
+    const { name, points, description } = request.query;
+
+    const parseProduto = String(produto)
       .split(',')
-      .map(item => Number(item.trim()));
+      .map(produto => Number(produto.trim()));
 
-    const points = await Knex('points')
-      .join('point_items', 'points.id', '=', 'point_items.point_id')
-      .whereIn('point_items.item_id', parseItems)
-      .where('city', String(city))
-      .where('uf', String(uf))
+    const produto = await Knex('produto')
+      .join('point_produto', 'produto.id', '=', 'point_produto.point_id')
+      .whereIn('point_produto.point_id', parseItems)
+      .where('name', String(name))
+      .where('description', String(description))
       .distinct()
-      .select('points.*')
+      .select('produto.*')
 
-    const serializedPoints = points.map(point => {
+    const serializedProduto = produto.map(produto => {
       return {
-        ...point,
-        image_url: `http://192.168.0.104:3333/uploads/${point.image}`,
+        ...produto,
+        image_url: `http://192.168.0.104:3333/uploads/${produto.image}`,
       };
     });
-    return response.json(serializedPoints);
+    return response.json(serializedProduto);
 
 
   },
 
-  //buscar um ponto
+  //buscar um produto
   async show(request, response, next) {
 
     try {
       const { id } = request.params;
 
-      const point = await Knex('points').where('id', id).first();
+      const produto = await Knex('produto').where('id', id).first();
 
 
-      if (!point) {
-        return response.status(400).json({ message: 'Point not foun.' });
+      if (!produto) {
+        return response.status(400).json({ message: 'Produto not foun.' });
       }
-      const serializedPoints = {
+      const serializedProduto = {
 
-        ...point,
-        image_url: `http://192.168.0.104:3333/uploads/${point.image}`,
+        ...produto,
+        image_url: `http://192.168.0.104:3333/uploads/${produto.image}`,
       };
 
 
@@ -68,6 +67,8 @@ module.exports = {
     }
 
   },
+
+
 
 
 
