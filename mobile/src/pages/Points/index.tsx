@@ -99,10 +99,6 @@ import api from '../../services/api'
 
 
 
-  function handleNavigationBack(){
-    navigation.goBack();
-  }
-
   function handleNavigationDetail(id:number){
     navigation.navigate('Detail',{point_id: id});
   }

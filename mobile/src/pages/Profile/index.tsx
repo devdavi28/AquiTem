@@ -142,7 +142,7 @@ export default function Sign () {
         </RectButton>
              
         </View>
-        <Tab/>
+       
       
     </ImageBackground>
     </>

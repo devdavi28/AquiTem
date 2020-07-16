@@ -97,8 +97,7 @@ const styles = StyleSheet.create({
   },
   textFooter: {
     textAlign: 'center',
-    fontSize: 20,
-   
+    fontSize: 17,   
     marginTop:10
 
   },

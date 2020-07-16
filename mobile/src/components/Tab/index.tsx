@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import {useAuth} from '../../contexts/auth'
 import { View, TouchableOpacity} from 'react-native';
 import {Feather as Icon} from '@expo/vector-icons'
@@ -9,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import styles from './styles';
 
-const Tab = createBottomTabNavigator();
+
 
 export default function Tabs() {
 
@@ -27,8 +25,8 @@ export default function Tabs() {
     signOut();
   }
 
-  function navigateToProfile() {
-    navigation.navigate('Profile');
+  function navigateToDrawer() {
+    navigation.navigate('Drawer');
   }
 
   function navigateToHome() {
@@ -47,7 +45,7 @@ export default function Tabs() {
       </TouchableOpacity>
 
       
-     <TouchableOpacity onPress={navigateToProfile}>
+     <TouchableOpacity onPress={navigateToDrawer}>
       <Icon name="user" size={25} style={[styles.icon, styles.active]} />
       </TouchableOpacity>
 

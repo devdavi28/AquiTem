@@ -3,7 +3,7 @@ const multer = require('multer');
 const multerConfig = require('./config/multer');
 const PointsControllers = require('./controller/PointsController');
 const UserControllers = require('./controller/UserController');
-const ProdutoPointsControllers = require('./controller/ProdutoPointsController');
+const ProdutoPointsController = require('./controller/ProdutoPointsController');
 const ItemsControllers = require('./controller/ItemsController');
 const { celebrate, Joi } = require('celebrate');
 
@@ -20,7 +20,7 @@ routes.get('/items', ItemsControllers.index)
 routes.post('/points', upload.single('image')
   , celebrate({
     body: Joi.object().keys({
-      name: Joi.string().required().max(30),
+      name: Joi.string().required('obrigatório').max(30),
       email: Joi.string().required().lowercase(),
       whatsapp: Joi.number().required(),
       departament: Joi.string().required().max(30),
@@ -38,9 +38,14 @@ routes.post('/points', upload.single('image')
 routes.get('/points', PointsControllers.index)
 routes.get('/points/:id', PointsControllers.show)
 
-routes.post('/produto', ProdutoPointsControllers.create)
+routes.post('/produto', upload.single('image'),
+  ProdutoPointsController.create)
 
-routes.get('/produto/:id', ProdutoPointsControllers.show)
+routes.get('/produto/:id', ProdutoPointsController.index)
+
+routes.get('/produto', ProdutoPointsController.index)
+
+
 
 //ROTAS USUARIOS
 routes.post('/user', UserControllers.create)

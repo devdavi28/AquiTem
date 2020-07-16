@@ -1,33 +1,25 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
-import {Feather as Icon, MaterialCommunityIcons} from '@expo/vector-icons'
+import {Feather as Icon} from '@expo/vector-icons'
 import { View, Image,TouchableOpacity, Text, ImageBackground , Platform, KeyboardAvoidingView, TextInput} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import {useAuth} from '../../contexts/auth'
+import AsyncStorage from '@react-native-community/async-storage'
 import {useNavigation} from  '@react-navigation/native'
 import api from '../../services/api'
 import styles from './styles'
 
 
 
-const Login = () => {
+
+
+const SignIn = () => {
   
   const[email, setEmail] = useState('');
   const[password, setPassword] = useState('');
   const navigate = useNavigation()
   
- 
-    
-  async function handleSignIn () {
-    
+   async function handleSignIn () {
+       
   
-  
-    
-    const response = await api.post('authenticate', {email, password})
-    const { user, token } = response.data
-    console.log(user)
-   
-  }
-   
   
    function handleRegister(){
      navigate.navigate('Register')  
@@ -36,6 +28,7 @@ const Login = () => {
 
    return(
      
+
    <KeyboardAvoidingView style={{flex:1}} behavior={Platform.OS === "ios" ? 'padding' : undefined}>
     <ImageBackground source={require('../../assets/home-background.png')}
       style={styles.container}
@@ -58,10 +51,8 @@ const Login = () => {
         placeholderTextColor="#999" 
         value={email}
         onChangeText={setEmail}
-       
-        
-        />
-        
+              
+        />        
          <TextInput
         style={styles.input}
         placeholder="Senha"
@@ -91,10 +82,10 @@ const Login = () => {
          </View>
     </ImageBackground>
    </KeyboardAvoidingView>
- 
+
+   
   );
+  
 }
 
-
-export default Login;
-
+export default SignIn;

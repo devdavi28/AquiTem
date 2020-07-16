@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
   },
   
   button: {
-    width: '48%',
+    width: '47%',
     backgroundColor: '#34CB79',
-    borderRadius: 10,
-    height: 50,
+    borderRadius: 8,
+    height: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
@@ -112,6 +112,31 @@ const styles = StyleSheet.create({
    backgroundColor:'#999',
    height:400,
    },
+  
+   boxContato:{
+    backgroundColor:'#fff',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderColor: '#999',
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+   
+    
+    },
+
+    textBoxContato:{
+      fontFamily: 'Roboto_400Regular',
+      lineHeight: 30,
+      marginTop:5,
+      fontSize:15,
+      color: '#6C6C80',
+    
+    
+
+    },
+
+
 
     produtoContainer: {
     padding: metrics.padding,

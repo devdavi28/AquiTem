@@ -3,7 +3,7 @@ import { colors, metrics } from '../../styles';
 
 const styles = StyleSheet.create({
   container: {  
-     paddingVertical: 12,
+    paddingVertical: 12,
     paddingHorizontal: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',

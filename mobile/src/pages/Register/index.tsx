@@ -19,7 +19,8 @@ interface Data{
   }
 }
 
-export default function Sign () {
+export const Register: React.FC = () => {
+
   const [data, setData] = useState<Data>({} as Data);
   const [name, setName] =useState('');
   const [surname, setSurname] =useState('');
@@ -148,3 +149,4 @@ export default function Sign () {
   
   );
 }
+export default Register;

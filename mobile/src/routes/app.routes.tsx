@@ -6,6 +6,7 @@ import Profile from '../pages/Profile'
 import Points from '../pages/Points'
 import Detail from '../pages/Detail'
 import Register from '../pages/Register'
+import Drawer from '../components/Drawer'
 
 
 
@@ -19,6 +20,8 @@ const AppRoutes:React.FC =()=>(
     <AppStack.Screen name ="Profile" component={Profile}/>
     <AppStack.Screen name ="Points" component={Points}/>
     <AppStack.Screen name ="Detail" component={Detail}/>
+    <AppStack.Screen name ="Drawer" component={Drawer}/>
+    
     <AppStack.Screen name ="Register" component={Register}/>
 
 

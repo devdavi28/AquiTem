@@ -22,6 +22,7 @@ produto:{
   description:string;
   value: string;
   image:string;
+  image_url:string;
 }
 
 };
@@ -68,12 +69,9 @@ const Detail = () => {
   },[]);
   
 
-  function handleNavigationBack(){
-    navigation.goBack();
-  }
-
   function handleWatsapp(){
-    Linking.openURL(`whatsapp://send?phone=${data.point.whatsapp}&text=Meu pedido`);
+    Linking.openURL(`whatsapp://send?phone=${data.point.whatsapp}
+    &text=Fale conosco!!`);
     
   }
 
@@ -101,8 +99,42 @@ const Detail = () => {
          <Text style={styles.addressTitle}>Endereço:</Text>
            <Text style={styles.addressContent}>{data.point.city}, {data.point.uf}</Text>
         </View>
+
+        <View style={styles.boxContato}>
+          
+        <RectButton style={styles.button}
+       onPress={handleWatsapp}>
+          <View >
+            <Text>
+              <FontAwesome name="whatsapp" color="#fff"size={25}/>
+          </Text>
+          </View>
+          <Text style={styles.buttonText}>
+            whatsapp
+          </Text>
+        </RectButton>
+
+        <RectButton style={styles.button}
+       onPress={handleComposeMail}>
+          <View >
+            <Text>
+              <Icon name="mail" color="#fff"size={25}/>
+          </Text>
+          </View>
+          <Text style={styles.buttonText}>
+            E-mail
+          </Text>
+        </RectButton>
+
+        </View>
+        
+
         <View style={styles.produtoContainer}>
         <Text style={styles.addressTitle}>Produtos em Destaque</Text>
+     
+       <Text style={styles.pointName}>{produtos.produto.name}</Text>
+      <Text style={styles.pointItems}>{data.point.departament}</Text>
+       
         
         </View>
        

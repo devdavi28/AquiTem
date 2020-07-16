@@ -8,6 +8,16 @@ export async function up(Knex: Knex){
      table.string('name').notNullable();
      table.string('description').notNullable();
      table.decimal('value').notNullable();
+
+  //RELACIONAMENTO
+    table.integer('points_id')
+    .references('points.id')
+    .notNullable()
+    .onDelete('CASCADE'); // Deletar usuario deleta os produtos
+    
+    table.timestamps(true, true)
+    
+    
      
       
     

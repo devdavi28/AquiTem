@@ -14,11 +14,15 @@ const Home = () => {
 
   const [uf, setUf] = useState('');
   const [city, setCity] = useState('');
-
   const navigation = useNavigation();
 
   
+ 
+  
+
   function handleNavigationPoints(){
+    
+    
     navigation.navigate('Points',{
       uf, city
     })

@@ -54,20 +54,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   
   async function signIn () {
     
-   
-    /*const schema = Yup.object().shape({
-      email:Yup.string()
-      .email('Digite um email válido')
-      .required('Email Obrigatório!'),
-      password: Yup.string().required('Senha Obrigatória').min(6, 'No minimo 6 caracteres')
-    });
-
-    await schema.validate();*/
-      
-  
-
-      
-  
+ 
+        
     const response = await api.post('authenticate',
      {email, password})
     const { user, token } = response.data

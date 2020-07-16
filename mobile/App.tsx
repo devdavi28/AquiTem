@@ -7,7 +7,7 @@ import {AuthProvider} from './src/contexts/auth'
 import {Roboto_500Medium, Roboto_400Regular, useFonts} from '@expo-google-fonts/roboto';
 import {Ubuntu_700Bold}from '@expo-google-fonts/ubuntu'
 
-import Routes from './src/routes';
+import Routes from './src/routes/app.routes';
 
 const  App: React.FC = ()=> { 
   const [fontsLoaded] = useFonts({
