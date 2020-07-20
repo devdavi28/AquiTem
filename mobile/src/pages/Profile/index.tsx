@@ -30,7 +30,7 @@ export default function Sign () {
 
   const navigation = useNavigation()
 
-  async function handleRegister () {
+  async function handleUpdate () {
     try {
       const credentials={
         name:name,
@@ -39,17 +39,17 @@ export default function Sign () {
         password:password,
       }
      
-      const response = await api.post('user', credentials)
+      const response = await api.put('user/id', credentials)
       setData(response.data);
     
        
-        ToastAndroid.show(`Bem vindo!  ${data.user.name}`, 
+        ToastAndroid.show(`Alterado com sucesso!  ${data}`, 
         ToastAndroid.LONG);
     
 
 
       navigation.navigate('Home')
-      setLoading(true)
+   
     } catch (err) {
       setLoading(false)
     }
@@ -130,7 +130,7 @@ export default function Sign () {
           
         
         <RectButton style={styles.button}
-         onPress={handleRegister}>
+         onPress={handleUpdate}>
           <View style={styles.buttonIcon}>
             <Text>
               <Icon name="user-check" color="#fff"size={25}/>

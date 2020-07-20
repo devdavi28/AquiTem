@@ -61,12 +61,12 @@ const Detail = () => {
     })
   },[]);
 
-  useEffect(()=>{
+  /*useEffect(()=>{
     api.get(`produto/${routeParams.point_id}`).then(response =>{
         setProdutos(response.data);
         console.log(response.data);
     })
-  },[]);
+  },[]);*/
   
 
   function handleWatsapp(){
@@ -132,8 +132,7 @@ const Detail = () => {
         <View style={styles.produtoContainer}>
         <Text style={styles.addressTitle}>Produtos em Destaque</Text>
      
-       <Text style={styles.pointName}>{produtos.produto.name}</Text>
-      <Text style={styles.pointItems}>{data.point.departament}</Text>
+     
        
         
         </View>

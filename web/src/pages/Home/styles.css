@@ -1,7 +1,8 @@
 #page-home {
   height: 100vh;
 
-  background: url('../../assets/home-background.svg') no-repeat 380px bottom;
+  background: url('../../assets/home-background.svg') 
+  no-repeat 380px bottom;
 }
 
 #page-home .content {
@@ -19,6 +20,15 @@
 #page-home .content header {
   margin: 48px 0 0;
 }
+
+#page-home .content header p {
+  background-image: url('../../assets/marca.png')
+  ;
+
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 48px;
+}
+
 
 #page-home .content main {
   flex: 1;

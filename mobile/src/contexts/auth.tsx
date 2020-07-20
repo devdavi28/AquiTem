@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import AsyncStorage from '@react-native-community/async-storage'
 import { View, Button, Animated, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native'
-import * as Yup from 'yup'
+
 import api from '../services/api'
 import styles from './styles'
 
@@ -23,6 +23,7 @@ interface AuthContextData{
   signOut(): void;
   signIn(): Promise<void>;
 
+
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData) // tipagem
@@ -31,7 +32,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User  | null>(null)
   const[email, setEmail] = useState<Auth>({}as Auth);
   const[password, setPassword] = useState<Auth>({}as Auth);
-   const [loading, setLoading] = useState(true)
+   const [loading, setLoading] = useState(false)
 
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         api.defaults.headers.Autorization = `Bearer ${storageToken}`
 
         setUser(JSON.parse(storageUser))
-        setLoading(false)
+        setLoading(true)
        
         // RNSplashScreen.hide();
       }
@@ -53,16 +54,17 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   
   async function signIn () {
-    
- 
-        
-    const response = await api.post('authenticate',
-     {email, password})
+    const credentials={
+      email:'sdavi28@hotmail.com',
+      password:'102030'
+    }
+            
+    const response = await api.post('authenticate',credentials)
+  
     const { user, token } = response.data
     setUser(user)
-   
-
-    api.defaults.headers.Autorization = `Bearer ${token}`
+     
+     api.defaults.headers.Autorization = `Bearer ${token}`
 
     // Armazenando os dados logado em um estado
     await AsyncStorage.setItem('@AquiAuth:user', JSON.stringify(user))
@@ -82,7 +84,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       {children}
     </AuthContext.Provider>
 
-  )
+  );
+  
 }
 
 // CRIANDO O HOOKS

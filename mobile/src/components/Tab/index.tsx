@@ -25,8 +25,8 @@ export default function Tabs() {
     signOut();
   }
 
-  function navigateToDrawer() {
-    navigation.navigate('Drawer');
+  function navigateToProfile() {
+    navigation.navigate('Profile');
   }
 
   function navigateToHome() {
@@ -45,7 +45,7 @@ export default function Tabs() {
       </TouchableOpacity>
 
       
-     <TouchableOpacity onPress={navigateToDrawer}>
+     <TouchableOpacity onPress={navigateToProfile}>
       <Icon name="user" size={25} style={[styles.icon, styles.active]} />
       </TouchableOpacity>
 

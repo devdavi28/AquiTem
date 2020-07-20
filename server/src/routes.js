@@ -41,7 +41,7 @@ routes.get('/points/:id', PointsControllers.show)
 routes.post('/produto', upload.single('image'),
   ProdutoPointsController.create)
 
-routes.get('/produto/:id', ProdutoPointsController.index)
+
 
 routes.get('/produto', ProdutoPointsController.index)
 
@@ -49,7 +49,7 @@ routes.get('/produto', ProdutoPointsController.index)
 
 //ROTAS USUARIOS
 routes.post('/user', UserControllers.create)
-routes.get('/users', UserControllers.index)
+routes.get('/users', UserControllers.show)
 routes.put('/users/:id', UserControllers.update)
 routes.delete('/users/:id', UserControllers.delete)
 

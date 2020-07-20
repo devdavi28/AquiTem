@@ -8,12 +8,12 @@ const Home = () => {
   return (
     <div id="page-home">
       <div className="content">
-        <header>
-        <img src={logo} alt="Ecoleta"/>
+        <header className="">
+          <p>Aqui Tem</p>
         </header>
 
         <main>
-          <h1>Aumente suas vendas ou seriços na plataforma online ou   </h1>
+          <h1>Aumente suas vendas ou serviços na plataforma online  </h1>
           <p>Cadastre-se e seja visto .</p>
 
           <Link to="/create-point">

@@ -19,10 +19,10 @@ module.exports = {
 
 
   //Listar Usuario
-  async index(request, response, next) {
+  async show(request, response, next) {
     try {
       const user = await Knex('user').select
-        ('name', 'email');
+        ('id', 'name', 'surname', 'email');
 
 
       return response.json(user)
@@ -81,15 +81,20 @@ module.exports = {
 
   async update(request, response, next) {
     try {
-      const { name, surname, email } = request.body;
+      const { name, surname, email, password } = request.body;
       const { id } = request.params;
 
-      await Knex('user')
-        .update({ name, surname, email, password })
-        .where({ id })
+      bcrypt.hash(password, saltRounds, async (err, hash) => {
+        const password = hash
+
+        await Knex('user')
+          .update({ name, surname, email, password })
+          .where({ id })
 
 
-      return response.status(201).send({ message: 'Alterado com sucesso!' })
+        return response.status(201).send({ message: 'Alterado com sucesso!' })
+
+      });
 
     } catch (error) {
       next(error)

@@ -32,6 +32,8 @@ module.exports = {
 
   },
 
+
+
   //buscar um ponto
   async show(request, response, next) {
 

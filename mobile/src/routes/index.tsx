@@ -1,5 +1,5 @@
 import React from 'react';
-import {View , ActivityIndicator} from 'react-native'
+import {View , ActivityIndicator, Text} from 'react-native'
 import {useAuth} from '../contexts/auth'
 
 import AuthRoutes from './auth.routes'
@@ -10,10 +10,11 @@ const Routes: React.FC = () => {
 
   const {signed, loading} = useAuth();
 
-  if(!loading){
+  if(loading){
     return(
       <View style={{flex:1 , justifyContent:'center', alignItems:'center'}}>
-        <ActivityIndicator size='large' color='#e03153'/> 
+        <Text>Aguardando...</Text>
+        <ActivityIndicator size='large' color='#34CB79'/> 
 
       </View>
     )

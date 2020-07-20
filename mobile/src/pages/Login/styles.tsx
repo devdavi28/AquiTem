@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     marginHorizontal:160,
     
   },
+  
 
   title: {
  
@@ -69,6 +70,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  action:{
+    position:'absolute', 
+    marginTop:65,
+    
+    marginHorizontal:130
+
+  },
+  icon:{
+    position:'absolute',
+    marginLeft:250,
+    marginTop:10,
+  },
+
+  iconButton:{
+    position:'absolute',
+    marginLeft:250,
+    marginTop:75,
+  },
+
+
+
   button: {
     backgroundColor: '#34CB79',
     height: 45,
@@ -87,7 +109,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
+  errorMsg: {
+    color: '#FF0000',
+    fontSize: 14,
+},
   buttonText: {
     flex: 1,
     justifyContent: 'center',

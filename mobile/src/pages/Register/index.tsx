@@ -4,15 +4,14 @@ import { View, Image, ScrollView,
 ToastAndroid, ActivityIndicator, Text, ImageBackground , Platform, KeyboardAvoidingView, TextInput} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import {useNavigation} from  '@react-navigation/native'
-import {useAuth} from '../../contexts/auth'
+
 import api from '../../services/api'
 
 import styles from './styles'
 
 
 interface Data{
-  user:{
-    name:string;
+  user:{    name:string;
     email:string;
     surname:string;
     password:string;
@@ -27,6 +26,7 @@ export const Register: React.FC = () => {
   const [email, setEmail] =useState('');
   const [password, setPassword] =useState('');
   const [loading, setLoading] = useState(false)
+ 
 
   const navigation = useNavigation()
 
@@ -45,12 +45,11 @@ export const Register: React.FC = () => {
        
         ToastAndroid.show(`Bem vindo!  ${data.user.name}`, 
         ToastAndroid.LONG);
-    
-
-
-      navigation.navigate('Home')
-      setLoading(true)
+        navigation.navigate('Login')
+     
     } catch (err) {
+      console.log(err);
+     
       setLoading(false)
     }
   }
